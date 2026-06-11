@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  offset: 3
 --- !u!4 &850132988
 Transform:
   m_ObjectHideFlags: 0
