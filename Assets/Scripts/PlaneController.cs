@@ -39,6 +39,18 @@ public class PlaneController : MonoBehaviour
         serviceHub.BulletManager.Shoot();
     }
 
+    public void OnBoost(InputAction.CallbackContext context)
+    {
+        if (context.started) moveSpeed *= 2;
+        else if (context.canceled) moveSpeed /= 2;
+    }
+
+    public void OnBreak(InputAction.CallbackContext context)
+    {
+        if (context.started) moveSpeed /= 2;
+        else if (context.canceled) moveSpeed *= 2;
+    }
+
     private void HandlePlayerMovement()
     {
         if(!moveEnabled) return;
