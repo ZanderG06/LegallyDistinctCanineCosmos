@@ -6,10 +6,10 @@ public class ServiceHub : MonoBehaviour
 
     [Header("System References")]
     [SerializeField] private PlaneController planeController;
-    //[SerializeField] private BulletManager bulletManager;
+    [SerializeField] private BulletManager bulletManager;
 
     public PlaneController PlaneController => planeController;
-    //public BulletManager BulletManager => bulletManager;
+    public BulletManager BulletManager => bulletManager;
 
     private void Awake()
     {

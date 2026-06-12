@@ -4,6 +4,7 @@ public class InvisWallManager : MonoBehaviour
 {
     private float startingX;
     private float startingY;
+    private float moveSpeed = 5f;
 
     private void Start()
     {
@@ -14,6 +15,6 @@ public class InvisWallManager : MonoBehaviour
     private void Update()
     {
         transform.position = new Vector3(startingX, startingY, transform.position.z);
-        transform.Translate(transform.forward * 5 * Time.deltaTime);
+        transform.Translate(moveSpeed * Time.deltaTime * transform.forward);
     }
 }

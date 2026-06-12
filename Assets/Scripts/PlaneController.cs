@@ -6,14 +6,17 @@ public class PlaneController : MonoBehaviour
     public float moveSpeed;
     public float turnSpeed;
     public float offset;
-    public bool moveEnabled;
 
+    private ServiceHub serviceHub;
+    private bool moveEnabled = true;
     private Rigidbody rb;
     private Vector2 moveInput;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        serviceHub = ServiceHub.Instance;
     }
 
     private void FixedUpdate()
@@ -29,6 +32,11 @@ public class PlaneController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnShoot()
+    {
+        serviceHub.BulletManager.Shoot();
     }
 
     private void HandlePlayerMovement()
