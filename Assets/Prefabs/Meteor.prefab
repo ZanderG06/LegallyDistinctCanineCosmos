@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3018573931851602977}
   - component: {fileID: 894054435632505755}
   - component: {fileID: 4420228109747136596}
+  - component: {fileID: -2681063544580280234}
+  - component: {fileID: -3732444191386320263}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -121,3 +123,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3fb7b2c4e80ef48a1d8146f832a7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2681063544580280234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254180770666681534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb459690bd645243bd013e1505d00fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &-3732444191386320263
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254180770666681534}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
