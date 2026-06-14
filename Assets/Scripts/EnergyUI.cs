@@ -8,7 +8,7 @@ public class EnergyUI : MonoBehaviour
     private float width;
     private float height;
 
-    private void Awake()
+    private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         serviceHub = ServiceHub.Instance;

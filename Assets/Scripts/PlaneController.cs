@@ -20,7 +20,9 @@ public class PlaneController : MonoBehaviour
     private Rigidbody rb;
     private Vector2 moveInput;
 
-    private void Awake()
+    public float currentZ;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
@@ -113,5 +115,6 @@ public class PlaneController : MonoBehaviour
         Vector3 move = new Vector3(moveInput.x * turnSpeed, moveInput.y * turnSpeed, currentSpeed) * Time.deltaTime;
 
         rb.MovePosition(transform.position + move);
+        currentZ = transform.position.z;
     }
 }
