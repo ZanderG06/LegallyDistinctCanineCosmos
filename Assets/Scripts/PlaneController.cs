@@ -38,7 +38,12 @@ public class PlaneController : MonoBehaviour
     {
         Camera.main.transform.position = new Vector3(0, offset, Camera.main.transform.position.z);
 
-        if(isBoosting)
+        HandleEnergy();
+    }
+
+    private void HandleEnergy()
+    {
+        if (isBoosting)
         {
             energy -= energyChangeRate * Time.deltaTime;
 
