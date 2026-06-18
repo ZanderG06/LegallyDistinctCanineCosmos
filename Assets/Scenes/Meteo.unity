@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 285848883}
   - component: {fileID: 285848882}
   - component: {fileID: 285848881}
+  - component: {fileID: 285848884}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Player
@@ -260,6 +261,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285848879}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &285848884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285848879}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &312362908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1450,12 @@ MonoBehaviour:
   normalThrust: 10
   brakeThrust: 5
   boostThrust: 15
+  maxX: 10
+  maxTop: 8
+  maxBottom: -2
+  planeBody: {fileID: 456987713}
+  maxUpDownRotation: 25
+  maxLeftRightRotation: 25
   offset: 3
   energyChangeRate: 40
   energy: 100
@@ -1869,7 +1897,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -6618,7 +6646,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2.7, z: 0}
-  m_LocalScale: {x: 22, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 20, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035835542}
@@ -8194,7 +8222,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 8.85, z: 0}
-  m_LocalScale: {x: 22, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 20, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035835542}
@@ -8639,7 +8667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2035835542
 Transform:
   m_ObjectHideFlags: 0

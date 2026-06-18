@@ -16,6 +16,16 @@ public class PlaneController : MonoBehaviour
     public float brakeThrust;
     public float boostThrust;
 
+    [Header("Max Plane Position")]
+    public float maxX;
+    public float maxTop;
+    public float maxBottom;
+
+    [Header("Rotation Settings")]
+    public GameObject planeBody;
+    public float maxUpDownRotation;
+    public float maxLeftRightRotation;
+
     [Header("Other")]
     public float offset;
     public float energyChangeRate;
@@ -42,6 +52,8 @@ public class PlaneController : MonoBehaviour
     private void FixedUpdate()
     {
         HandlePlayerMovement();
+        HandlePlanePosition();
+        HandlePlaneRotation();
     }
 
     private void Update()
@@ -79,6 +91,8 @@ public class PlaneController : MonoBehaviour
         }
         else
         {
+            ChangeThrustBrightness(normalThrust);
+
             if (energy >= 100)
             {
                 energy = 100;
@@ -136,6 +150,35 @@ public class PlaneController : MonoBehaviour
 
         rb.MovePosition(transform.position + move);
         currentZ = transform.position.z;
+    }
+
+    private void HandlePlanePosition()
+    {
+        if(transform.position.x > maxX)
+        {
+            transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+        }
+        else if(transform.position.x < -maxX)
+        {
+            transform.position = new Vector3(-maxX, transform.position.y, transform.position.z);
+        }
+
+        if(transform.position.y > maxTop)
+        {
+            transform.position = new Vector3(transform.position.x, maxTop, transform.position.z);
+        }
+        else if(transform.position.y < maxBottom)
+        {
+            transform.position = new Vector3(transform.position.x, maxBottom, transform.position.z);
+        }
+    }
+
+    private void HandlePlaneRotation()
+    {
+        float pitch = -moveInput.y * maxUpDownRotation;
+        float roll = -moveInput.x * maxLeftRightRotation;
+
+        planeBody.transform.rotation = Quaternion.Euler(pitch, 0f, roll);
     }
 
     private void ChangeThrustBrightness(float brightness)
