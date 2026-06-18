@@ -56,21 +56,25 @@ public class PlaneController : MonoBehaviour
         if (isBoosting)
         {
             energy -= energyChangeRate * Time.deltaTime;
+            ChangeThrustBrightness(boostThrust);
 
             if (energy <= 0)
             {
                 energy = 0;
                 currentSpeed = moveSpeed;
+                ChangeThrustBrightness(normalThrust);
             }
         }
         else if (isBraking)
         {
             energy -= energyChangeRate * Time.deltaTime;
+            ChangeThrustBrightness(brakeThrust);
 
             if (energy <= 0)
             {
                 energy = 0;
                 currentSpeed = moveSpeed;
+                ChangeThrustBrightness(normalThrust);
             }
         }
         else
@@ -101,13 +105,12 @@ public class PlaneController : MonoBehaviour
         {
             currentSpeed = boostSpeed;
             isBoosting = true;
-            ChangeThrustBrightness(boostThrust);
+            
         }
         else if (context.canceled)
         {
             currentSpeed = moveSpeed;
             isBoosting = false;
-            ChangeThrustBrightness(normalThrust);
         }
     }
 
@@ -117,13 +120,11 @@ public class PlaneController : MonoBehaviour
         {
             currentSpeed = brakeSpeed;
             isBraking = true;
-                ChangeThrustBrightness(brakeThrust);
         }
         else if (context.canceled)
         {
             currentSpeed = moveSpeed;
             isBraking = false;
-            ChangeThrustBrightness(normalThrust);
         }
     }
 
