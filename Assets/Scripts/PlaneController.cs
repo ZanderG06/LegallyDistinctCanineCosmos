@@ -3,12 +3,20 @@ using UnityEngine.InputSystem;
 
 public class PlaneController : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float currentSpeed;
     public float moveSpeed;
     public float brakeSpeed;
     public float boostSpeed;
-
     public float turnSpeed;
+
+    [Header("Thrust Settings")]
+    public GameObject thrust;
+    public float normalThrust;
+    public float brakeThrust;
+    public float boostThrust;
+
+    [Header("Other")]
     public float offset;
     public float energyChangeRate;
 
@@ -27,6 +35,8 @@ public class PlaneController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         serviceHub = ServiceHub.Instance;
+
+        ChangeThrustBrightness(normalThrust);
     }
 
     private void FixedUpdate()
@@ -91,11 +101,13 @@ public class PlaneController : MonoBehaviour
         {
             currentSpeed = boostSpeed;
             isBoosting = true;
+            ChangeThrustBrightness(boostThrust);
         }
         else if (context.canceled)
         {
             currentSpeed = moveSpeed;
             isBoosting = false;
+            ChangeThrustBrightness(normalThrust);
         }
     }
 
@@ -105,11 +117,13 @@ public class PlaneController : MonoBehaviour
         {
             currentSpeed = brakeSpeed;
             isBraking = true;
+                ChangeThrustBrightness(brakeThrust);
         }
         else if (context.canceled)
         {
             currentSpeed = moveSpeed;
             isBraking = false;
+            ChangeThrustBrightness(normalThrust);
         }
     }
 
@@ -121,5 +135,10 @@ public class PlaneController : MonoBehaviour
 
         rb.MovePosition(transform.position + move);
         currentZ = transform.position.z;
+    }
+
+    private void ChangeThrustBrightness(float brightness)
+    {
+        thrust.GetComponent<Renderer>().material.color = new Color(brightness, brightness, brightness);
     }
 }
