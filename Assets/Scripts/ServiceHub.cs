@@ -7,9 +7,11 @@ public class ServiceHub : MonoBehaviour
     [Header("System References")]
     [SerializeField] private PlaneController planeController;
     [SerializeField] private BulletManager bulletManager;
+    [SerializeField] private UIManager uiManager;
 
     public PlaneController PlaneController => planeController;
     public BulletManager BulletManager => bulletManager;
+    public UIManager UIManager => uiManager;
 
     private void Awake()
     {

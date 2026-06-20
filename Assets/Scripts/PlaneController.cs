@@ -142,6 +142,11 @@ public class PlaneController : MonoBehaviour
         }
     }
 
+    public void OnPause()
+    {
+        ServiceHub.Instance.UIManager.TogglePauseUI();
+    }
+
     private void HandlePlayerMovement()
     {
         if(!moveEnabled) return;
