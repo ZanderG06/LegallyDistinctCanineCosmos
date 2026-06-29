@@ -9,6 +9,7 @@ public class PlaneController : MonoBehaviour
     public float brakeSpeed;
     public float boostSpeed;
     public float turnSpeed;
+    public bool invertY;
 
     [Header("Thrust Settings")]
     public GameObject thrust;
@@ -150,8 +151,10 @@ public class PlaneController : MonoBehaviour
     private void HandlePlayerMovement()
     {
         if(!moveEnabled) return;
+        Vector3 move;
 
-        Vector3 move = new Vector3(moveInput.x * turnSpeed, moveInput.y * turnSpeed, currentSpeed) * Time.deltaTime;
+        if(invertY) move = new Vector3(moveInput.x * turnSpeed, moveInput.y * turnSpeed, currentSpeed) * Time.deltaTime;
+        else move = new Vector3(moveInput.x * turnSpeed, -moveInput.y * turnSpeed, currentSpeed) * Time.deltaTime;
 
         rb.MovePosition(transform.position + move);
         currentZ = transform.position.z;
@@ -180,7 +183,11 @@ public class PlaneController : MonoBehaviour
 
     private void HandlePlaneRotation()
     {
-        float pitch = -moveInput.y * maxUpDownRotation;
+        float pitch;
+
+        if(invertY) pitch = -moveInput.y * maxUpDownRotation;
+        else pitch = moveInput.y * maxUpDownRotation;
+
         float roll = -moveInput.x * maxLeftRightRotation;
 
         planeBody.transform.rotation = Quaternion.Euler(pitch, 0f, roll);
