@@ -10,7 +10,6 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        pauseUI.SetActive(false);
         controlsUI.SetActive(false);
     }
 
@@ -33,5 +32,10 @@ public class UIManager : MonoBehaviour
     {
         controlsUI.SetActive(!controlsUI.activeSelf);
         pauseUI.SetActive(!pauseUI.activeSelf);
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }
