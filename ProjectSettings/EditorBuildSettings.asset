@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Meteo.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 79a602771ef5f5547bb4bec9066aa9f5
+  - enabled: 1
+    path: Assets/Scenes/MeteorBelt.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Training.unity
+    guid: 9b58a53cc1d13354c81150d04ed59c91
+  - enabled: 1
+    path: Assets/Scenes/Systems/Achernar.unity
+    guid: 43d3005f9f1bfb944bbda6c0be084cd1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
